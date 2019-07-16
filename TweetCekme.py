@@ -5,24 +5,9 @@ TAVSİYE TWEETLERINI CEKME
 BİLAL YAŞAR TARAFINDAN YAZILDI
  
 """
-import requests # python3x request kütüphanesi
-from bs4 import BeautifulSoup
+from lib.twitter_scraper import get_tweets # gerekli kutuphaneyi ice aktar
 
-twitsayfasi = "https://twitter.com/GurayYildirimTR"# imdb-url olmadı ımdburl yaptın
-
-r = requests.get(twitsayfasi)#sayfa kaynagı r nın ıcende
-
-soup = BeautifulSoup(r.content,"html.parser")
-
-gelen_veri = soup.find_all("p",{"class":"TweetTextSize TweetTextSize--normal js-tweet-text tweet-text"})
-#print(gelen_veri)
-
-for i in gelen_veri:
-	#print(i.text)
-	if i.text[0] == "[":
-		print(i.text)
-
-
-
-
+for tweet in get_tweets("GurayYildirimTR"): # kullanicinin tum tweetlerini cek ve liste halinde donguye sok
+    if not tweet['isRetweet'] and tweet['text'].startswith('['): # eger bu bir RT degilse ve [ ile baslıyorsa
+        print(tweet['text'])	
 
