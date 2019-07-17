@@ -3,6 +3,7 @@ GURAY YILDIRIM YAZILIMCILARA
 TAVSİYE TWEETLERINI CEKME
 
 BİLAL YAŞAR TARAFINDAN YAZILDI
+BUGRA ISGUZARA ÇOK TESEKKURLER
  
 """
 from lib.twitter_scraper import get_tweets # gerekli kutuphaneyi ice aktar
